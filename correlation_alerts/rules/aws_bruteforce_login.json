@@ -1,0 +1,19 @@
+{
+  "rule_name": "aws_bruteforce_login",
+  "rule_author": "siembol",
+  "rule_version": 1,
+  "rule_description": "Brute force AWS logins",
+  "correlation_attributes": {
+    "time_unit": "minutes",
+    "time_window": 1,
+    "time_computation_type": "event_time",
+    "max_time_lag_in_sec": 300,
+    "alerts": [
+      {
+        "alert": "aws_failed_authentication",
+        "threshold": 10,
+        "mandatory": true
+      }
+    ]
+  }
+}
