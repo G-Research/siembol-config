@@ -18,10 +18,17 @@
       "expected_pattern": "1532457131000",
       "negated_pattern": false,
       "active": true
+    },
+    {
+      "assertion_type": "path_and_value_matches",
+      "json_path": "$.parsedMessages[0].userIdentity_principalId",
+      "expected_pattern": "AIDACKCEVSQ6C2EXAMPLE",
+      "negated_pattern": false,
+      "active": true
     }
   ],
   "author": "siembol",
-  "version": 2,
+  "version": 3,
   "test_case_name": "cloudtrail_failed_authentication",
   "config_name": "aws_cloudtrail"
 }
