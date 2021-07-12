@@ -1,10 +1,10 @@
 {
-  "config_version": 1,
+  "config_version": 2,
   "topology.name.prefix": "parsing",
   "client.id.prefix": "siembol.parsing.writer",
   "group.id.prefix": "siembol.parsing.reader",
   "zookeeper.attributes": {
-    "zk.url": "siembol-storm-zookeeper:2181",
+    "zk.url": "siembol-zookeeper:2181",
     "zk.path": "/siembol/parser_configs",
     "zk.base.sleep.ms": 1000,
     "zk.max.retries": 3
