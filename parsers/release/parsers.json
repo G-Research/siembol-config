@@ -1,9 +1,9 @@
 {
-  "parsers_version": 1,
+  "parsers_version": 2,
   "parsers_configurations": [
     {
       "parser_name": "aws_cloudtrail",
-      "parser_version": 1,
+      "parser_version": 2,
       "parser_author": "siembol",
       "parser_description": "AWS cloudtrail parser",
       "parser_attributes": {
@@ -18,7 +18,7 @@
           ],
           "extractor_type": "json_extractor",
           "attributes": {
-            "should_overwrite_fields": false,
+            "should_overwrite_fields": true,
             "should_remove_field": false,
             "remove_quotes": true,
             "skip_empty_values": false,
@@ -26,7 +26,8 @@
             "nested_separator": "_",
             "time_formats": [
               {
-                "time_format": "yyyy-MM-dd'T'HH:mm:ss'Z'"
+                "time_format": "yyyy-MM-dd'T'HH:mm:ss'Z'",
+                "timezone": "UTC"
               }
             ],
             "timestamp_field": "eventTime"
