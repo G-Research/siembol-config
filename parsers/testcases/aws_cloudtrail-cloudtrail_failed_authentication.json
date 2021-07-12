@@ -1,0 +1,20 @@
+{
+  "test_case_name": "cloudtrail_failed_authentication",
+  "description": "Failed authentication message",
+  "test_specification": {
+    "encoding": "utf8_string",
+    "log": "{\n    \"eventVersion\": \"1.05\",\n    \"userIdentity\": {\n        \"type\": \"IAMUser\",\n        \"principalId\": \"AIDACKCEVSQ6C2EXAMPLE\",\n        \"accountId\": \"111122223333\",\n        \"accessKeyId\": \"\",\n        \"userName\": \"anaya\"\n    },\n    \"eventTime\": \"2018-07-24T18:32:11Z\",\n    \"eventSource\": \"signin.amazonaws.com\",\n    \"eventName\": \"ConsoleLogin\",\n    \"awsRegion\": \"us-east-1\",\n    \"sourceIPAddress\": \"192.0.2.0\",\n    \"userAgent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36\",\n    \"errorMessage\": \"Failed authentication\",\n    \"requestParameters\": null,\n    \"responseElements\": {\n        \"ConsoleLogin\": \"Failure\"\n    },\n    \"additionalEventData\": {\n        \"LoginTo\": \"https://console.aws.amazon.com/console/home?state=hashArgs%23&isauthcode=true\",\n        \"MobileVersion\": \"No\",\n        \"MFAUsed\": \"Yes\"\n    },\n    \"eventID\": \"d38ce1b3-4575-4cb8-a632-611b8243bfc3\",\n    \"eventType\": \"AwsConsoleSignIn\",\n    \"recipientAccountId\": \"111122223333\"\n}"
+  },
+  "assertions": [
+    {
+      "assertion_type": "path_and_value_matches",
+      "json_path": "$.parsedMessages[0].errorMessage",
+      "expected_pattern": "Failed authentication",
+      "negated_pattern": false,
+      "active": true
+    }
+  ],
+  "author": "siembol",
+  "version": 1,
+  "config_name": "aws_cloudtrail"
+}
