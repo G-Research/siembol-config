@@ -1,5 +1,4 @@
 {
-  "test_case_name": "cloudtrail_failed_authentication",
   "description": "Failed authentication message",
   "test_specification": {
     "encoding": "utf8_string",
@@ -12,9 +11,17 @@
       "expected_pattern": "Failed authentication",
       "negated_pattern": false,
       "active": true
+    },
+    {
+      "assertion_type": "path_and_value_matches",
+      "json_path": "$.parsedMessages[0].timestamp",
+      "expected_pattern": "1532457131000",
+      "negated_pattern": false,
+      "active": true
     }
   ],
   "author": "siembol",
-  "version": 1,
+  "version": 2,
+  "test_case_name": "cloudtrail_failed_authentication",
   "config_name": "aws_cloudtrail"
 }
