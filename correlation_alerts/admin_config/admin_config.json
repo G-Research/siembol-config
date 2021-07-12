@@ -1,5 +1,5 @@
 {
-  "config_version": 1,
+  "config_version": 2,
   "alerts.engine": "siembol_correlation_alerts",
   "alerts.topology.name": "siembol-correlation-alerts",
   "alerts.engine.clean.interval.sec": 1,
@@ -15,7 +15,7 @@
     "security.protocol": "SASL_PLAINTEXT"
   },
   "zookeeper.attributes": {
-    "zk.url": "siembol-storm-zookeeper:2181",
+    "zk.url": "siembol-zookeeper:2181",
     "zk.path": "/siembol/correlation_alerts",
     "zk.base.sleep.ms": 1000,
     "zk.max.retries": 3
