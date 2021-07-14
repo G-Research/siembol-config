@@ -1,0 +1,25 @@
+{
+  "rule_name": "win_lateral_movement",
+  "rule_author": "siembol",
+  "rule_version": 1,
+  "rule_description": "Alerts on multiple failed logons as indicator of lateral movement attempt",
+  "correlation_attributes": {
+    "time_unit": "minutes",
+    "time_window": 5,
+    "time_computation_type": "event_time",
+    "max_time_lag_in_sec": 30,
+    "alerts": [
+      {
+        "alert": "win_eventlogs_failed_logon",
+        "threshold": 10,
+        "mandatory": false
+      }
+    ]
+  },
+  "tags": [
+    {
+      "tag_name": "attack",
+      "tag_value": "TA0008"
+    }
+  ]
+}

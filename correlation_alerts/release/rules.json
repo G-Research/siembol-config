@@ -1,0 +1,59 @@
+{
+  "tags": [
+    {
+      "tag_name": "detection_source",
+      "tag_value": "siembol_correlation_alerts"
+    }
+  ],
+  "rules_protection": {
+    "max_per_hour": 30,
+    "max_per_day": 100
+  },
+  "rules_version": 2,
+  "rules": [
+    {
+      "rule_name": "aws_bruteforce_login",
+      "rule_author": "siembol",
+      "rule_version": 1,
+      "rule_description": "Brute force AWS logins",
+      "correlation_attributes": {
+        "time_unit": "minutes",
+        "time_window": 1,
+        "time_computation_type": "event_time",
+        "max_time_lag_in_sec": 300,
+        "alerts": [
+          {
+            "alert": "aws_failed_authentication",
+            "threshold": 10,
+            "mandatory": true
+          }
+        ]
+      }
+    },
+    {
+      "rule_name": "win_lateral_movement",
+      "rule_author": "siembol",
+      "rule_version": 1,
+      "rule_description": "Alerts on multiple failed logons as indicator of lateral movement attempt",
+      "correlation_attributes": {
+        "time_unit": "minutes",
+        "time_window": 5,
+        "time_computation_type": "event_time",
+        "max_time_lag_in_sec": 30,
+        "alerts": [
+          {
+            "alert": "win_eventlogs_failed_logon",
+            "threshold": 10,
+            "mandatory": false
+          }
+        ]
+      },
+      "tags": [
+        {
+          "tag_name": "attack",
+          "tag_value": "TA0008"
+        }
+      ]
+    }
+  ]
+}

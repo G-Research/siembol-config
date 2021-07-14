@@ -1,30 +1,101 @@
 {
-  "rules_version": 1,
   "tags": [
     {
       "tag_name": "detection_source",
       "tag_value": "siembol_alerts"
     }
   ],
+  "rules_protection": {
+    "max_per_hour": 30,
+    "max_per_day": 100
+  },
+  "rules_version": 3,
   "rules": [
     {
-      "rule_name": "test_rule",
+      "rule_name": "aws_failed_authentication",
+      "rule_author": "siembol",
       "rule_version": 1,
-      "rule_author": "dummy",
-      "rule_protection": {
-        "max_per_hour": 100,
-        "max_per_day": 10000
-      },
-      "rule_description": "test rule - is_alert is equal to true",
-      "source_type": "secret",
+      "rule_description": "AWS failed authentication",
+      "source_type": "aws_cloudtrail",
       "matchers": [
         {
           "matcher_type": "REGEX_MATCH",
           "is_negated": false,
-          "field": "is_alert",
-          "data": "(?i)true"
+          "field": "eventName",
+          "data": "(?i)ConsoleLogin$"
+        },
+        {
+          "matcher_type": "IS_IN_SET",
+          "is_negated": false,
+          "field": "errorMessage",
+          "case_insensitive": true,
+          "data": "Failed authentication"
+        }
+      ],
+      "tags": [
+        {
+          "tag_name": "correlation_key",
+          "tag_value": "${userIdentity_principalId}"
         }
       ]
+    },
+    {
+      "rule_name": "win_eventlogs_failed_logon",
+      "rule_author": "siembol",
+      "rule_version": 1,
+      "rule_description": "Alert for 4625 failed logon - for correlation on user",
+      "source_type": "win_eventlogs",
+      "matchers": [
+        {
+          "matcher_type": "IS_IN_SET",
+          "is_negated": false,
+          "field": "EventID",
+          "case_insensitive": false,
+          "data": "4625"
+        }
+      ],
+      "tags": [
+        {
+          "tag_name": "correlation_key",
+          "tag_value": "${SubjectUserName}"
+        }
+      ],
+      "rule_protection": {
+        "max_per_hour": 30,
+        "max_per_day": 100
+      }
+    },
+    {
+      "rule_name": "win_mimikatz",
+      "rule_author": "siembol",
+      "rule_version": 1,
+      "rule_description": "Detect LSASS handling by Mimikatz",
+      "source_type": "win_eventlogs",
+      "matchers": [
+        {
+          "matcher_type": "IS_IN_SET",
+          "is_negated": false,
+          "field": "EventID",
+          "case_insensitive": false,
+          "data": "4656"
+        },
+        {
+          "matcher_type": "REGEX_MATCH",
+          "is_negated": false,
+          "field": "ObjectName",
+          "data": "^.*\\\\lsass.exe$"
+        },
+        {
+          "matcher_type": "REGEX_MATCH",
+          "is_negated": false,
+          "field": "ProcessName",
+          "data": "^.*\\\\mimikatz.exe$"
+        }
+      ],
+      "rule_protection": {
+        "max_per_hour": 30,
+        "max_per_day": 100
+      }
     }
   ]
 }

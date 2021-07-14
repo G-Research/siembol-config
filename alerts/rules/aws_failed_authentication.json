@@ -1,0 +1,28 @@
+{
+  "rule_name": "aws_failed_authentication",
+  "rule_author": "siembol",
+  "rule_version": 1,
+  "rule_description": "AWS failed authentication",
+  "source_type": "aws_cloudtrail",
+  "matchers": [
+    {
+      "matcher_type": "REGEX_MATCH",
+      "is_negated": false,
+      "field": "eventName",
+      "data": "(?i)ConsoleLogin$"
+    },
+    {
+      "matcher_type": "IS_IN_SET",
+      "is_negated": false,
+      "field": "errorMessage",
+      "case_insensitive": true,
+      "data": "Failed authentication"
+    }
+  ],
+  "tags": [
+    {
+      "tag_name": "correlation_key",
+      "tag_value": "${userIdentity_principalId}"
+    }
+  ]
+}

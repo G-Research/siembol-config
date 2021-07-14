@@ -1,0 +1,32 @@
+{
+  "rule_name": "win_mimikatz",
+  "rule_author": "siembol",
+  "rule_version": 1,
+  "rule_description": "Detect LSASS handling by Mimikatz",
+  "source_type": "win_eventlogs",
+  "matchers": [
+    {
+      "matcher_type": "IS_IN_SET",
+      "is_negated": false,
+      "field": "EventID",
+      "case_insensitive": false,
+      "data": "4656"
+    },
+    {
+      "matcher_type": "REGEX_MATCH",
+      "is_negated": false,
+      "field": "ObjectName",
+      "data": "^.*\\\\lsass.exe$"
+    },
+    {
+      "matcher_type": "REGEX_MATCH",
+      "is_negated": false,
+      "field": "ProcessName",
+      "data": "^.*\\\\mimikatz.exe$"
+    }
+  ],
+  "rule_protection": {
+    "max_per_hour": 30,
+    "max_per_day": 100
+  }
+}

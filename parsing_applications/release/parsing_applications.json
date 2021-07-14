@@ -1,0 +1,51 @@
+{
+  "parsing_applications_version": 2,
+  "parsing_applications": [
+    {
+      "parsing_app_name": "aws_cloudtrail",
+      "parsing_app_version": 1,
+      "parsing_app_author": "siembol",
+      "parsing_app_description": "AWS cloudtrail parsing application",
+      "parsing_app_settings": {
+        "parsing_app_type": "single_parser",
+        "input_topics": [
+          "aws.cloudtrail"
+        ],
+        "error_topic": "siembol.indexing",
+        "input_parallelism": 1,
+        "parsing_parallelism": 1,
+        "output_parallelism": 1,
+        "parse_metadata": false
+      },
+      "parsing_settings": {
+        "single_parser": {
+          "output_topic": "siembol.indexing",
+          "parser_name": "aws_cloudtrail"
+        }
+      }
+    },
+    {
+      "parsing_app_name": "win_eventlogs",
+      "parsing_app_version": 1,
+      "parsing_app_author": "siembol",
+      "parsing_app_description": "Windows eventlogs parsing application",
+      "parsing_app_settings": {
+        "parsing_app_type": "single_parser",
+        "input_topics": [
+          "win.eventlogs"
+        ],
+        "error_topic": "siembol.indexing",
+        "input_parallelism": 1,
+        "parsing_parallelism": 1,
+        "output_parallelism": 1,
+        "parse_metadata": false
+      },
+      "parsing_settings": {
+        "single_parser": {
+          "output_topic": "siembol.indexing",
+          "parser_name": "win_eventlogs"
+        }
+      }
+    }
+  ]
+}

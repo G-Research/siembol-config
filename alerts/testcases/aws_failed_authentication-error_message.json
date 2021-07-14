@@ -1,0 +1,51 @@
+{
+  "test_case_name": "error_message",
+  "description": "Failed authentication error message",
+  "test_specification": {
+    "event": {
+      "userIdentity_principalId": "AIDACKCEVSQ6C2EXAMPLE",
+      "eventID": "d38ce1b3-4575-4cb8-a632-611b8243bfc3",
+      "awsRegion": "us-east-1",
+      "responseElements_ConsoleLogin": "Failure",
+      "additionalEventData_LoginTo": "https://console.aws.amazon.com/console/home?state=hashArgs%23&isauthcode=true",
+      "userIdentity_accessKeyId": "",
+      "eventVersion": "1.05",
+      "sourceIPAddress": "192.0.2.0",
+      "eventSource": "signin.amazonaws.com",
+      "errorMessage": "Failed authentication",
+      "userIdentity_userName": "anaya",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36",
+      "source_type": "aws_cloudtrail",
+      "eventType": "AwsConsoleSignIn",
+      "original_string": "{\n    \"eventVersion\": \"1.05\",\n    \"userIdentity\": {\n        \"type\": \"IAMUser\",\n        \"principalId\": \"AIDACKCEVSQ6C2EXAMPLE\",\n        \"accountId\": \"111122223333\",\n        \"accessKeyId\": \"\",\n        \"userName\": \"anaya\"\n    },\n    \"eventTime\": \"2018-07-24T18:32:11Z\",\n    \"eventSource\": \"signin.amazonaws.com\",\n    \"eventName\": \"ConsoleLogin\",\n    \"awsRegion\": \"us-east-1\",\n    \"sourceIPAddress\": \"192.0.2.0\",\n    \"userAgent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36\",\n    \"errorMessage\": \"Failed authentication\",\n    \"requestParameters\": null,\n    \"responseElements\": {\n        \"ConsoleLogin\": \"Failure\"\n    },\n    \"additionalEventData\": {\n        \"LoginTo\": \"https://console.aws.amazon.com/console/home?state=hashArgs%23&isauthcode=true\",\n        \"MobileVersion\": \"No\",\n        \"MFAUsed\": \"Yes\"\n    },\n    \"eventID\": \"d38ce1b3-4575-4cb8-a632-611b8243bfc3\",\n    \"eventType\": \"AwsConsoleSignIn\",\n    \"recipientAccountId\": \"111122223333\"\n}",
+      "userIdentity_type": "IAMUser",
+      "additionalEventData_MFAUsed": "Yes",
+      "userIdentity_accountId": "111122223333",
+      "additionalEventData_MobileVersion": "No",
+      "eventTime": "2018-07-24T18:32:11Z",
+      "eventName": "ConsoleLogin",
+      "recipientAccountId": "111122223333",
+      "timestamp": 1532457131000
+    }
+  },
+  "assertions": [
+    {
+      "assertion_type": "path_and_value_matches",
+      "json_path": "$.outputEvents[0].siembol_alerts_rule_name",
+      "expected_pattern": "aws_failed_authentication",
+      "negated_pattern": false,
+      "active": true
+    },
+    {
+      "assertion_type": "path_and_value_matches",
+      "json_path": "$.outputEvents[0].correlation_key",
+      "expected_pattern": "AIDACKCEVSQ6C2EXAMPLE",
+      "negated_pattern": false,
+      "description": "Checking correlation key",
+      "active": true
+    }
+  ],
+  "author": "siembol",
+  "version": 1,
+  "config_name": "aws_failed_authentication"
+}

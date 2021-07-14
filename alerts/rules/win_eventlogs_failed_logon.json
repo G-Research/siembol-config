@@ -1,0 +1,26 @@
+{
+  "rule_name": "win_eventlogs_failed_logon",
+  "rule_author": "siembol",
+  "rule_version": 1,
+  "rule_description": "Alert for 4625 failed logon - for correlation on user",
+  "source_type": "win_eventlogs",
+  "matchers": [
+    {
+      "matcher_type": "IS_IN_SET",
+      "is_negated": false,
+      "field": "EventID",
+      "case_insensitive": false,
+      "data": "4625"
+    }
+  ],
+  "tags": [
+    {
+      "tag_name": "correlation_key",
+      "tag_value": "${SubjectUserName}"
+    }
+  ],
+  "rule_protection": {
+    "max_per_hour": 30,
+    "max_per_day": 100
+  }
+}
