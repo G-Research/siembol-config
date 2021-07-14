@@ -1,5 +1,5 @@
 {
-  "config_version": 3,
+  "config_version": 4,
   "topology.name.prefix": "parsing",
   "client.id.prefix": "siembol.parsing.writer",
   "group.id.prefix": "siembol.parsing.reader",
@@ -27,26 +27,5 @@
       "topology.message.timeout.secs": 50,
       "max.spout.pending": 500
     }
-  },
-  "overridden.applications": [
-    {
-      "application.name": "temp_delete",
-      "kafka.batch.writer.attributes": {
-        "batch.size": 1,
-        "producer.properties": {
-          "a": 1
-        }
-      },
-      "storm.attributes": {
-        "bootstrap.servers": "dummy",
-        "first.pool.offset.strategy": "UNCOMMITTED_LATEST",
-        "kafka.spout.properties": {
-          "a": 1
-        },
-        "storm.config": {
-          "a": 1
-        }
-      }
-    }
-  ]
+  }
 }
