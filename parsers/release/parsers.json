@@ -1,5 +1,5 @@
 {
-  "parsers_version": 2,
+  "parsers_version": 3,
   "parsers_configurations": [
     {
       "parser_name": "aws_cloudtrail",
@@ -43,6 +43,39 @@
                 "^requestParameters_resource.*$"
               ]
             }
+          }
+        }
+      ]
+    },
+    {
+      "parser_name": "win_eventlogs",
+      "parser_version": 1,
+      "parser_author": "siembol",
+      "parser_description": "Parser for win eventlogs sent in syslog format",
+      "parser_attributes": {
+        "parser_type": "syslog",
+        "syslog_config": {
+          "syslog_version": "RFC_5424"
+        }
+      },
+      "parser_extractors": [
+        {
+          "name": "kv_extractor",
+          "field": "original_string",
+          "extractor_type": "key_value_extractor",
+          "attributes": {
+            "should_overwrite_fields": true,
+            "should_remove_field": false,
+            "remove_quotes": true,
+            "skip_empty_values": false,
+            "thrown_exception_on_error": false,
+            "word_delimiter": " ",
+            "key_value_delimiter": "=",
+            "escaped_character": "\\",
+            "quota_value_handling": true,
+            "next_key_strategy": false,
+            "escaping_handling": true,
+            "rename_duplicate_keys": false
           }
         }
       ]
