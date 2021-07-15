@@ -10,7 +10,7 @@
   "alerts.output.topic": "siembol.alerts",
   "alerts.correlation.output.topic": "siembol.correlation.alerts",
   "kafka.producer.properties": {
-    "bootstrap.servers": "siembol-storm-kafka-headless.siembol.svc.cluster.local:9092",
+    "bootstrap.servers": "kafka-0.kafka-headless.siembol.svc.cluster.local:9092",
     "client.id": "siembol.correlation.alerting.writer",
     "security.protocol": "SASL_PLAINTEXT"
   },
@@ -21,7 +21,7 @@
     "zk.max.retries": 3
   },
   "storm.attributes": {
-    "bootstrap.servers": "siembol-storm-kafka-headless.siembol.svc.cluster.local:9092",
+    "bootstrap.servers": "kafka-0.kafka-headless.siembol.svc.cluster.local:9092",
     "first.pool.offset.strategy": "UNCOMMITTED_LATEST",
     "kafka.spout.properties": {
       "group.id": "siembol.correlation.alerting.reader",

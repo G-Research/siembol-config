@@ -12,12 +12,12 @@
   "kafka.batch.writer.attributes": {
     "batch.size": 1,
     "producer.properties": {
-      "bootstrap.servers": "siembol-storm-kafka-headless.siembol.svc.cluster.local:9092",
+      "bootstrap.servers": "kafka-0.kafka-headless.siembol.svc.cluster.local:9092",
       "security.protocol": "SASL_PLAINTEXT"
     }
   },
   "storm.attributes": {
-    "bootstrap.servers": "iembol-storm-kafka-headless.siembol.svc.cluster.local:9092",
+    "bootstrap.servers": "kafka-0.kafka-headless.siembol.svc.cluster.local:9092",
     "first.pool.offset.strategy": "UNCOMMITTED_LATEST",
     "kafka.spout.properties": {
       "security.protocol": "SASL_PLAINTEXT"
