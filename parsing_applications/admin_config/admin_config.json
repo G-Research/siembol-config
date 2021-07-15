@@ -13,14 +13,14 @@
     "batch.size": 1,
     "producer.properties": {
       "bootstrap.servers": "kafka-0.kafka-headless.siembol.svc.cluster.local:9092",
-      "security.protocol": "SASL_PLAINTEXT"
+      "security.protocol": "PLAINTEXT"
     }
   },
   "storm.attributes": {
     "bootstrap.servers": "kafka-0.kafka-headless.siembol.svc.cluster.local:9092",
     "first.pool.offset.strategy": "UNCOMMITTED_LATEST",
     "kafka.spout.properties": {
-      "security.protocol": "SASL_PLAINTEXT"
+      "security.protocol": "PLAINTEXT"
     },
     "storm.config": {
       "topology.workers": 1,

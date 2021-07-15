@@ -11,7 +11,7 @@
   "kafka.producer.properties": {
     "bootstrap.servers": "kafka-0.kafka-headless.siembol.svc.cluster.local:9092",
     "client.id": "siembol.alerting.writer",
-    "security.protocol": "SASL_PLAINTEXT"
+    "security.protocol": "PLAINTEXT"
   },
   "zookeeper.attributes": {
     "zk.url": "siembol-zookeeper:2181",
@@ -25,7 +25,7 @@
     "kafka.spout.properties": {
       "group.id": "siembol.alerting.reader",
       "session.timeout.ms": 30000,
-      "security.protocol": "SASL_PLAINTEXT"
+      "security.protocol": "PLAINTEXT"
     },
     "storm.config": {
       "topology.workers": 1,
