@@ -1,0 +1,29 @@
+{
+  "rules_version": 1,
+  "rules": [
+    {
+      "rule_name": "ip_hostname",
+      "rule_author": "siembol",
+      "rule_version": 1,
+      "source_type": "win_eventlogs",
+      "matchers": [
+        {
+          "matcher_type": "REGEX_MATCH",
+          "is_negated": false,
+          "field": "IpAddress",
+          "data": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"
+        }
+      ],
+      "table_mapping": {
+        "table_name": "dns",
+        "joining_key": "${IpAddress}",
+        "enriching_fields": [
+          {
+            "table_field_name": "hostname",
+            "event_field_name": "HostnameIpAddress"
+          }
+        ]
+      }
+    }
+  ]
+}
