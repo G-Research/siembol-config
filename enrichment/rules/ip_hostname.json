@@ -1,7 +1,7 @@
 {
   "rule_name": "ip_hostname",
   "rule_author": "siembol",
-  "rule_version": 1,
+  "rule_version": 2,
   "source_type": "win_eventlogs",
   "matchers": [
     {
@@ -17,7 +17,7 @@
     "enriching_fields": [
       {
         "table_field_name": "hostname",
-        "event_field_name": "HostnameIpAddress"
+        "event_field_name": "enriched_hostname"
       }
     ]
   }
