@@ -1,0 +1,49 @@
+{
+  "config_version": 1,
+  "topology.name": "siembol-enrichment",
+  "kafka.spout.num.executors": 1,
+  "enriching.engine.bolt.num.executors": 1,
+  "memory.enriching.bolt.num.executors": 1,
+  "merging.bolt.num.executors": 1,
+  "kafka.writer.bolt.num.executors": 1,
+  "enriching.rules.zookeeper.attributes": {
+    "zk.base.sleep.ms": 1000,
+    "zk.max.retries": 3,
+    "zk.path": "/siembol/enrichment_rules",
+    "zk.url": "siembol-zookeeper:2181"
+  },
+  "enriching.tables.zookeeper.attributes": {
+    "zk.base.sleep.ms": 1000,
+    "zk.max.retries": 3,
+    "zk.path": "/siembol/enrichment_tables",
+    "zk.url": "siembol-zookeeper:2181"
+  },
+  "kafka.batch.writer.attributes": {
+    "batch.size": 1,
+    "producer.properties": {
+      "bootstrap.servers": "kafka-0.kafka-headless.siembol.svc.cluster.local:9092",
+      "client.id": "siembol.enrichment.writer",
+      "security.protocol": "PLAINTEXT"
+    }
+  },
+  "storm.attributes": {
+    "bootstrap.servers": "kafka-0.kafka-headless.siembol.svc.cluster.local:9092",
+    "first.pool.offset.strategy": "UNCOMMITTED_LATEST",
+    "kafka.spout.properties": {
+      "group.id": "siembol.enrichment.reader",
+      "session.timeout.ms": 30000,
+      "security.protocol": "PLAINTEXT"
+    },
+    "storm.config": {
+      "topology.workers": 1,
+      "topology.message.timeout.secs": 50,
+      "max.spout.pending": 500
+    }
+  },
+  "enriching.input.topics": [
+    "siembol.enrichments"
+  ],
+  "enriching.output.topic": "siembol.indexing",
+  "enriching.error.topic": "siembol.indexing",
+  "enriching.tables.hdfs.uri": "https://enrichment-tables.siembol.local"
+}
