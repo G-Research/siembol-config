@@ -1,5 +1,4 @@
 {
-  "test_case_name": "test_1",
   "test_specification": {
     "event": {
       "ProcessName": "-",
@@ -61,13 +60,14 @@
   "assertions": [
     {
       "assertion_type": "path_and_value_matches",
-      "json_path": "HostnameIpAddress",
+      "json_path": "enriched_hostname",
       "expected_pattern": "test\\.com",
       "negated_pattern": false,
       "active": true
     }
   ],
   "author": "siembol",
-  "version": 1,
+  "version": 2,
+  "test_case_name": "test_1",
   "config_name": "ip_hostname"
 }
