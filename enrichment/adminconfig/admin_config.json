@@ -45,5 +45,5 @@
   ],
   "enriching.output.topic": "siembol.indexing",
   "enriching.error.topic": "siembol.indexing",
-  "enriching.tables.hdfs.uri": "https://enrichment-tables.siembol.local"
+  "enriching.tables.uri": "https://enrichment-tables.siembol.local"
 }
