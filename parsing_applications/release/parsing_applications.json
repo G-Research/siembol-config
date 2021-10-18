@@ -1,9 +1,9 @@
 {
-  "parsing_applications_version": 2,
+  "parsing_applications_version": 3,
   "parsing_applications": [
     {
       "parsing_app_name": "aws_cloudtrail",
-      "parsing_app_version": 1,
+      "parsing_app_version": 2,
       "parsing_app_author": "siembol",
       "parsing_app_description": "AWS cloudtrail parsing application",
       "parsing_app_settings": {
@@ -11,7 +11,7 @@
         "input_topics": [
           "aws.cloudtrail"
         ],
-        "error_topic": "siembol.indexing",
+        "error_topic": "siembol.enrichment",
         "input_parallelism": 1,
         "parsing_parallelism": 1,
         "output_parallelism": 1,
@@ -26,7 +26,7 @@
     },
     {
       "parsing_app_name": "win_eventlogs",
-      "parsing_app_version": 1,
+      "parsing_app_version": 2,
       "parsing_app_author": "siembol",
       "parsing_app_description": "Windows eventlogs parsing application",
       "parsing_app_settings": {
@@ -34,7 +34,7 @@
         "input_topics": [
           "win.eventlogs"
         ],
-        "error_topic": "siembol.indexing",
+        "error_topic": "siembol.enrichment",
         "input_parallelism": 1,
         "parsing_parallelism": 1,
         "output_parallelism": 1,
