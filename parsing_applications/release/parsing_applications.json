@@ -11,7 +11,7 @@
         "input_topics": [
           "aws.cloudtrail"
         ],
-        "error_topic": "siembol.enrichment",
+        "error_topic": "siembol.indexing",
         "input_parallelism": 1,
         "parsing_parallelism": 1,
         "output_parallelism": 1,
@@ -34,7 +34,7 @@
         "input_topics": [
           "win.eventlogs"
         ],
-        "error_topic": "siembol.enrichment",
+        "error_topic": "siembol.indexing",
         "input_parallelism": 1,
         "parsing_parallelism": 1,
         "output_parallelism": 1,
