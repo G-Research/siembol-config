@@ -8,7 +8,7 @@
     "input_topics": [
       "win.eventlogs"
     ],
-    "error_topic": "siembol.enrichment",
+    "error_topic": "siembol.indexing",
     "input_parallelism": 1,
     "parsing_parallelism": 1,
     "output_parallelism": 1,
@@ -16,7 +16,7 @@
   },
   "parsing_settings": {
     "single_parser": {
-      "output_topic": "siembol.indexing",
+      "output_topic": "siembol.enrichment",
       "parser_name": "win_eventlogs"
     }
   }
