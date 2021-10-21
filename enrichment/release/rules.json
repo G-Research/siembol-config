@@ -1,10 +1,10 @@
 {
-  "rules_version": 2,
+  "rules_version": 3,
   "rules": [
     {
       "rule_name": "ip_hostname",
       "rule_author": "siembol",
-      "rule_version": 2,
+      "rule_version": 3,
       "source_type": "win_eventlogs",
       "matchers": [
         {
@@ -15,7 +15,7 @@
         }
       ],
       "table_mapping": {
-        "table_name": "dns",
+        "table_name": "hostname",
         "joining_key": "${IpAddress}",
         "enriching_fields": [
           {
