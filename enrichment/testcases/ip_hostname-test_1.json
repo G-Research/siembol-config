@@ -50,7 +50,7 @@
       "TargetUserSid": "S-1-0-0",
       "AuthenticationPackageName": "NTLM"
     },
-    "testing_table_name": "dns",
+    "testing_table_name": "hostname",
     "testing_table_mapping": {
       "1.2.3.4": {
         "hostname": "test.com"
@@ -67,7 +67,7 @@
     }
   ],
   "author": "siembol",
-  "version": 2,
+  "version": 3,
   "test_case_name": "test_1",
   "config_name": "ip_hostname"
 }
