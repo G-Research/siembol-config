@@ -1,11 +1,11 @@
 {
-  "parsers_version": 3,
+  "parsers_version": 4,
   "parsers_configurations": [
     {
       "parser_name": "aws_cloudtrail",
-      "parser_version": 2,
+      "parser_version": 3,
       "parser_author": "siembol",
-      "parser_description": "AWS cloudtrail parser",
+      "parser_description": "AWS cloudtrail parser.",
       "parser_attributes": {
         "parser_type": "generic"
       },
@@ -49,13 +49,15 @@
     },
     {
       "parser_name": "win_eventlogs",
-      "parser_version": 1,
+      "parser_version": 2,
       "parser_author": "siembol",
-      "parser_description": "Parser for win eventlogs sent in syslog format",
+      "parser_description": "Parser for win eventlogs sent in syslog format.",
       "parser_attributes": {
         "parser_type": "syslog",
         "syslog_config": {
-          "syslog_version": "RFC_5424"
+          "syslog_version": "RFC_5424",
+          "merge_sd_elements": false,
+          "timezone": "UTC"
         }
       },
       "parser_extractors": [
