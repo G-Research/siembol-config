@@ -1,8 +1,8 @@
 {
   "parser_name": "win_eventlogs",
-  "parser_version": 2,
+  "parser_version": 3,
   "parser_author": "siembol",
-  "parser_description": "Parser for win eventlogs sent in syslog format.",
+  "parser_description": "Parser for win eventlogs sent in syslog format",
   "parser_attributes": {
     "parser_type": "syslog",
     "syslog_config": {
