@@ -1,8 +1,8 @@
 {
   "parser_name": "aws_cloudtrail",
-  "parser_version": 3,
+  "parser_version": 4,
   "parser_author": "siembol",
-  "parser_description": "AWS cloudtrail parser.",
+  "parser_description": "AWS cloudtrail parser!",
   "parser_attributes": {
     "parser_type": "generic"
   },
