@@ -1,7 +1,7 @@
 {
   "test_specification": {
     "encoding": "utf8_string",
-    "log": "<11>1 2018-11-01T18:50:16.967176+00:00 NXLOG-AGENT Microsoft-Windows-Security-Auditing 0x0 - [NXLOG@14506 Keywords=\"9227875636482146304\" EventType=\"AUDIT_FAILURE\" EventID=\"4656\" ProviderGuid=\"{54849625-5478-4994-A5BA-3E3B0328C30D}\" Version=\"0\" TaskValue=\"12544\" OpcodeValue=\"0\" RecordNumber=\"133819\" ActivityID=\"{70C9BD71-705D-0000-97BD-C9705D70D401}\" ExecutionProcessID=\"712\" ExecutionThreadID=\"2452\" Channel=\"Security\" Category=\"Logon\" Opcode=\"Info\" SubjectUserSid=\"S-1-0-0\" SubjectUserName=\"-\" SubjectDomainName=\"-\" SubjectLogonId=\"0x0\" TargetUserSid=\"S-1-0-0\" TargetUserName=\"ADMINISTRATOR\" Status=\"0xc000006d\" FailureReason=\"%%2313\" SubStatus=\"0xc000006a\" LogonType=\"3\" LogonProcessName=\"NtLmSsp \" AuthenticationPackageName=\"NTLM\" WorkstationName=\"-\" TransmittedServices=\"-\" LmPackageName=\"-\" KeyLength=\"0\" ProcessName=\"C:\\mimikatz.exe\" IpAddress=\"2.3.4.5\" IpPort=\"0\" EventReceivedTime=\"2018-11-01 18:50:18\" SourceModuleName=\"eventlog\" ObjectName=\"C:\\windows\\system32\\lsass.exe\" SourceModuleType=\"im_msvistalog\"] "
+    "log": "<11>1 2018-11-01T18:50:16.967176+00:00 NXLOG-AGENT Microsoft-Windows-Security-Auditing 0x0 - [NXLOG@14506 Keywords=\"9227875636482146304\" EventType=\"AUDIT_FAILURE\" EventID=\"4656\" ProviderGuid=\"{54849625-5478-4994-A5BA-3E3B0328C30D}\" Version=\"0\" TaskValue=\"12544\" OpcodeValue=\"0\" RecordNumber=\"133819\" ActivityID=\"{70C9BD71-705D-0000-97BD-C9705D70D401}\" ExecutionProcessID=\"712\" ExecutionThreadID=\"2452\" Channel=\"Security\" Category=\"Logon\" Opcode=\"Info\" SubjectUserSid=\"S-1-0-0\" SubjectUserName=\"-\" SubjectDomainName=\"-\" SubjectLogonId=\"0x0\" TargetUserSid=\"S-1-0-0\" TargetUserName=\"ADMINISTRATOR\" Status=\"0xc000006d\" FailureReason=\"%%2313\" SubStatus=\"0xc000006a\" LogonType=\"3\" LogonProcessName=\"NtLmSsp \" AuthenticationPackageName=\"NTLM\" WorkstationName=\"-\" TransmittedServices=\"-\" LmPackageName=\"-\" KeyLength=\"0\" ProcessName=\"C:\\mimikatz.exe\" IpAddress=\"1.2.3.4\" IpPort=\"0\" EventReceivedTime=\"2018-11-01 18:50:18\" SourceModuleName=\"eventlog\" ObjectName=\"C:\\windows\\system32\\lsass.exe\" SourceModuleType=\"im_msvistalog\"] "
   },
   "assertions": [
     {
@@ -20,7 +20,7 @@
     }
   ],
   "author": "siembol",
-  "version": 2,
+  "version": 3,
   "test_case_name": "test_with_dummy_mimikatz_behaviour",
   "config_name": "win_eventlogs"
 }

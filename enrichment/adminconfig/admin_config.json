@@ -1,5 +1,5 @@
 {
-  "config_version": 1,
+  "config_version": 3,
   "topology.name": "siembol-enrichment",
   "kafka.spout.num.executors": 1,
   "enriching.engine.bolt.num.executors": 1,
@@ -41,9 +41,9 @@
     }
   },
   "enriching.input.topics": [
-    "siembol.enrichments"
+    "siembol.enrichment"
   ],
   "enriching.output.topic": "siembol.indexing",
   "enriching.error.topic": "siembol.indexing",
-  "enriching.tables.hdfs.uri": "https://enrichment-tables.siembol.local"
+  "enriching.tables.uri": "http://siembol-enrichment-store"
 }

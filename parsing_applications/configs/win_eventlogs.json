@@ -1,6 +1,6 @@
 {
   "parsing_app_name": "win_eventlogs",
-  "parsing_app_version": 1,
+  "parsing_app_version": 2,
   "parsing_app_author": "siembol",
   "parsing_app_description": "Windows eventlogs parsing application",
   "parsing_app_settings": {
@@ -16,7 +16,7 @@
   },
   "parsing_settings": {
     "single_parser": {
-      "output_topic": "siembol.indexing",
+      "output_topic": "siembol.enrichment",
       "parser_name": "win_eventlogs"
     }
   }
