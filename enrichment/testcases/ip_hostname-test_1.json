@@ -53,7 +53,7 @@
     "testing_table_name": "hostname",
     "testing_table_mapping": {
       "1.2.3.4": {
-        "hostname": "test.com"
+        "hostname": "test-name"
       }
     }
   },
@@ -61,13 +61,13 @@
     {
       "assertion_type": "path_and_value_matches",
       "json_path": "enriched_hostname",
-      "expected_pattern": "test\\.com",
+      "expected_pattern": "test-name",
       "negated_pattern": false,
       "active": true
     }
   ],
   "author": "siembol",
-  "version": 3,
+  "version": 4,
   "test_case_name": "test_1",
   "config_name": "ip_hostname"
 }
