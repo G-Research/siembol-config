@@ -1,8 +1,8 @@
 {
   "rule_name": "win_mimikatz",
   "rule_author": "siembol",
-  "rule_version": 1,
-  "rule_description": "Detect LSASS handling by Mimikatz",
+  "rule_version": 2,
+  "rule_description": "Detect LSASS handling by Mimikatz.",
   "source_type": "win_eventlogs",
   "matchers": [
     {
