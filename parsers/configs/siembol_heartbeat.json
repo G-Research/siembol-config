@@ -1,0 +1,35 @@
+{
+  "parser_name": "siembol_heartbeat",
+  "parser_version": 1,
+  "parser_author": "siembol",
+  "parser_description": "Parser for siembol heartbeat",
+  "parser_attributes": {
+    "parser_type": "generic"
+  },
+  "parser_extractors": [
+    {
+      "is_enabled": true,
+      "name": "json",
+      "field": "original_string",
+      "post_processing_functions": [
+        "format_timestamp"
+      ],
+      "extractor_type": "json_extractor",
+      "attributes": {
+        "should_overwrite_fields": true,
+        "should_remove_field": false,
+        "remove_quotes": true,
+        "skip_empty_values": false,
+        "thrown_exception_on_error": false,
+        "nested_separator": ":",
+        "time_formats": [
+          {
+            "time_format": "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            "timezone": "UTC"
+          }
+        ],
+        "timestamp_field": "event_time"
+      }
+    }
+  ]
+}
