@@ -1,0 +1,15 @@
+{
+  "rule_name": "siembol_heartbeat",
+  "rule_author": "siembol",
+  "rule_version": 1,
+  "source_type": "siembol_heartbeat",
+  "matchers": [
+    {
+      "is_enabled": true,
+      "matcher_type": "REGEX_MATCH",
+      "is_negated": false,
+      "field": "siembol_heartbeat",
+      "data": "true"
+    }
+  ]
+}
