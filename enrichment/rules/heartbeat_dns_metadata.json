@@ -1,0 +1,29 @@
+{
+  "rule_name": "heartbeat_dns_metadata",
+  "rule_author": "siembol",
+  "rule_version": 1,
+  "source_type": "siembol_heartbeat",
+  "matchers": [
+    {
+      "is_enabled": true,
+      "matcher_type": "REGEX_MATCH",
+      "is_negated": false,
+      "field": "siembol_heartbeat",
+      "data": "true"
+    }
+  ],
+  "table_mapping": {
+    "table_name": "dns",
+    "joining_key": "table_metadata",
+    "enriching_fields": [
+      {
+        "table_field_name": "table_size",
+        "event_field_name": "dns_table_size"
+      },
+      {
+        "table_field_name": "number_of_row",
+        "event_field_name": "dns_table_number_of_rows"
+      }
+    ]
+  }
+}
