@@ -1,0 +1,25 @@
+{
+  "parsing_app_name": "siembol_heartbeat",
+  "parsing_app_version": 1,
+  "parsing_app_author": "siembol",
+  "parsing_app_description": "Siembol heartbeat parsing application",
+  "parsing_app_settings": {
+    "parsing_app_type": "single_parser",
+    "input_topics": [
+      "siembol.heartbeat"
+    ],
+    "error_topic": "siembol.indexing",
+    "input_parallelism": 1,
+    "parsing_parallelism": 1,
+    "output_parallelism": 1,
+    "parse_metadata": false,
+    "max_num_fields": 300,
+    "max_field_size": 40000
+  },
+  "parsing_settings": {
+    "single_parser": {
+      "output_topic": "siembol.enrichment",
+      "parser_name": "siembol_heartbeat"
+    }
+  }
+}
