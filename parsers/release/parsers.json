@@ -1,5 +1,5 @@
 {
-  "parsers_version": 5,
+  "parsers_version": 6,
   "parsers_configurations": [
     {
       "parser_name": "aws_cloudtrail",
@@ -84,7 +84,7 @@
     },
     {
       "parser_name": "siembol_heartbeat",
-      "parser_version": 1,
+      "parser_version": 2,
       "parser_author": "siembol",
       "parser_description": "Parser for siembol heartbeat",
       "parser_attributes": {
@@ -107,7 +107,7 @@
             "nested_separator": ":",
             "time_formats": [
               {
-                "time_format": "yyyy-MM-dd'T'HH:mm:ss'Z'",
+                "time_format": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
                 "timezone": "UTC"
               }
             ],
