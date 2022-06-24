@@ -8,7 +8,6 @@
   },
   "parser_extractors": [
     {
-      "is_enabled": true,
       "name": "json",
       "field": "original_string",
       "post_processing_functions": [
