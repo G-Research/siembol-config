@@ -32,7 +32,6 @@
       "source_type": "siembol_heartbeat",
       "matchers": [
         {
-          "is_enabled": true,
           "matcher_type": "REGEX_MATCH",
           "is_negated": false,
           "field": "siembol_heartbeat",
