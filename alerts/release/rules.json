@@ -9,7 +9,7 @@
     "max_per_hour": 30,
     "max_per_day": 100
   },
-  "rules_version": 3,
+  "rules_version": 4,
   "rules": [
     {
       "rule_name": "aws_failed_authentication",
@@ -96,6 +96,20 @@
         "max_per_hour": 30,
         "max_per_day": 100
       }
+    },
+    {
+      "rule_name": "siembol_heartbeat",
+      "rule_author": "siembol",
+      "rule_version": 1,
+      "source_type": "siembol_heartbeat",
+      "matchers": [
+        {
+          "matcher_type": "REGEX_MATCH",
+          "is_negated": false,
+          "field": "siembol_heartbeat",
+          "data": "true"
+        }
+      ]
     }
   ]
 }
