@@ -38,9 +38,7 @@
         "input_parallelism": 1,
         "parsing_parallelism": 1,
         "output_parallelism": 1,
-        "parse_metadata": false,
-        "max_num_fields": 300,
-        "max_field_size": 40000
+        "parse_metadata": false
       },
       "parsing_settings": {
         "single_parser": {
