@@ -1,0 +1,22 @@
+{
+  "rule_name": "new_entry_0",
+  "rule_author": "siembol",
+  "rule_version": 1,
+  "evaluators": [
+    {
+      "evaluator_type": "matching",
+      "evaluator_attributes": {
+        "evaluation_result": "match",
+        "matchers": [
+          {
+            "is_enabled": true,
+            "matcher_type": "REGEX_MATCH",
+            "is_negated": false,
+            "field": "source_type",
+            "data": "siembol_heartbeat"
+          }
+        ]
+      }
+    }
+  ]
+}
