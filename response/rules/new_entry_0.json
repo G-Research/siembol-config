@@ -1,7 +1,7 @@
 {
   "rule_name": "new_entry_0",
   "rule_author": "siembol",
-  "rule_version": 1,
+  "rule_version": 2,
   "evaluators": [
     {
       "evaluator_type": "matching",
@@ -16,6 +16,12 @@
             "data": "siembol_heartbeat"
           }
         ]
+      }
+    },
+    {
+      "evaluator_type": "kafka_writer",
+      "evaluator_attributes": {
+        "topic_name": "siembol.response.heartbeat"
       }
     }
   ]
