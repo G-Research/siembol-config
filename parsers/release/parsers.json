@@ -1,5 +1,5 @@
 {
-  "parsers_version": 6,
+  "parsers_version": 7,
   "parsers_configurations": [
     {
       "parser_name": "aws_cloudtrail",
@@ -115,6 +115,14 @@
           }
         }
       ]
+    },
+    {
+      "parser_name": "default",
+      "parser_version": 1,
+      "parser_author": "siembol",
+      "parser_attributes": {
+        "parser_type": "generic"
+      }
     }
   ]
 }
