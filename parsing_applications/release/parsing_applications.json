@@ -1,51 +1,55 @@
 {
-  "parsing_applications_version": 5,
+  "parsing_applications_version": 6,
   "parsing_applications": [
     {
-      "parsing_app_name": "win_eventlogs",
-      "parsing_app_version": 2,
-      "parsing_app_author": "siembol",
-      "parsing_app_description": "Windows eventlogs parsing application",
-      "parsing_app_settings": {
-        "parsing_app_type": "single_parser",
-        "input_topics": [
-          "win.eventlogs"
-        ],
-        "error_topic": "siembol.indexing",
-        "num_workers": 1,
-        "input_parallelism": 1,
-        "parsing_parallelism": 1,
-        "output_parallelism": 1,
-        "parse_metadata": false
-      },
-      "parsing_settings": {
-        "single_parser": {
-          "output_topic": "siembol.enrichment",
-          "parser_name": "win_eventlogs"
-        }
-      }
-    },
-    {
-      "parsing_app_name": "siembol_heartbeat",
+      "parsing_app_name": "app_router",
       "parsing_app_version": 1,
       "parsing_app_author": "siembol",
-      "parsing_app_description": "Siembol heartbeat parsing application",
       "parsing_app_settings": {
-        "parsing_app_type": "single_parser",
+        "parsing_app_type": "topic_routing_parsing",
         "input_topics": [
-          "siembol.heartbeat"
+          "siembol.heartbeat",
+          "win.eventlogs",
+          "aws.cloudtrail"
         ],
-        "error_topic": "siembol.indexing",
+        "error_topic": "siembol.error",
         "num_workers": 1,
         "input_parallelism": 1,
         "parsing_parallelism": 1,
         "output_parallelism": 1,
-        "parse_metadata": false
+        "parse_metadata": false,
+        "max_num_fields": 300,
+        "max_field_size": 40000
       },
       "parsing_settings": {
-        "single_parser": {
-          "output_topic": "siembol.enrichment",
-          "parser_name": "siembol_heartbeat"
+        "topic_routing_parser": {
+          "parsers": [
+            {
+              "topic_name": "siembol.heartbeat",
+              "parser_properties": {
+                "parser_name": "siembol_heartbeat",
+                "output_topic": "siembol.enrichment"
+              }
+            },
+            {
+              "topic_name": "win.eventlogs",
+              "parser_properties": {
+                "parser_name": "win_eventlogs",
+                "output_topic": "siembol.enrichment"
+              }
+            },
+            {
+              "topic_name": "aws.cloudtrail",
+              "parser_properties": {
+                "parser_name": "aws_cloudtrail",
+                "output_topic": "siembol.enrichment"
+              }
+            }
+          ],
+          "default_parser": {
+            "output_topic": "siembol.default",
+            "parser_name": "default"
+          }
         }
       }
     }
