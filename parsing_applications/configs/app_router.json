@@ -1,0 +1,52 @@
+{
+  "parsing_app_name": "app_router",
+  "parsing_app_version": 1,
+  "parsing_app_author": "siembol",
+  "parsing_app_settings": {
+    "parsing_app_type": "topic_routing_parsing",
+    "input_topics": [
+      "siembol.heartbeat",
+      "win.eventlogs",
+      "aws.cloudtrail"
+    ],
+    "error_topic": "siembol.error",
+    "num_workers": 1,
+    "input_parallelism": 1,
+    "parsing_parallelism": 1,
+    "output_parallelism": 1,
+    "parse_metadata": false,
+    "max_num_fields": 300,
+    "max_field_size": 40000
+  },
+  "parsing_settings": {
+    "topic_routing_parser": {
+      "parsers": [
+        {
+          "topic_name": "siembol.heartbeat",
+          "parser_properties": {
+            "parser_name": "siembol_heartbeat",
+            "output_topic": "siembol.enrichment"
+          }
+        },
+        {
+          "topic_name": "win.eventlogs",
+          "parser_properties": {
+            "parser_name": "win_eventlogs",
+            "output_topic": "siembol.enrichment"
+          }
+        },
+        {
+          "topic_name": "aws.cloudtrail",
+          "parser_properties": {
+            "parser_name": "aws_cloudtrail",
+            "output_topic": "siembol.enrichment"
+          }
+        }
+      ],
+      "default_parser": {
+        "output_topic": "siembol.default",
+        "parser_name": "default"
+      }
+    }
+  }
+}

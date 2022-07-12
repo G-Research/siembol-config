@@ -9,6 +9,7 @@
       "aws.cloudtrail"
     ],
     "error_topic": "siembol.indexing",
+    "num_workers": 1,
     "input_parallelism": 1,
     "parsing_parallelism": 1,
     "output_parallelism": 1,
