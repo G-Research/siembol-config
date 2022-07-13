@@ -1,0 +1,27 @@
+{
+  "description": "Log with failed login, eventID: 4625",
+  "test_specification": {
+    "encoding": "utf8_string",
+    "log": "<11>1 2018-11-01T18:50:16.967176+00:00 NXLOG-AGENT Microsoft-Windows-Security-Auditing 0x0 - [NXLOG@14506 Keywords=\"9227875636482146304\" EventType=\"AUDIT_FAILURE\" EventID=\"4625\" ProviderGuid=\"{54849625-5478-4994-A5BA-3E3B0328C30D}\" Version=\"0\" TaskValue=\"12544\" OpcodeValue=\"0\" RecordNumber=\"133819\" ActivityID=\"{70C9BD71-705D-0000-97BD-C9705D70D401}\" ExecutionProcessID=\"712\" ExecutionThreadID=\"2452\" Channel=\"Security\" Category=\"Logon\" Opcode=\"Info\" SubjectUserSid=\"S-1-0-0\" SubjectUserName=\"-\" SubjectDomainName=\"-\" SubjectLogonId=\"0x0\" TargetUserSid=\"S-1-0-0\" TargetUserName=\"ADMINISTRATOR\" Status=\"0xc000006d\" FailureReason=\"%%2313\" SubStatus=\"0xc000006a\" LogonType=\"3\" LogonProcessName=\"NtLmSsp\" AuthenticationPackageName=\"NTLM\" WorkstationName=\"-\" TransmittedServices=\"-\" LmPackageName=\"-\" KeyLength=\"0\" ProcessName=\"-\" IpAddress=\"1.2.3.4\" IpPort=\"0\" EventReceivedTime=\"2018-11-01 18:50:18\" SourceModuleName=\"eventlog\" SourceModuleType=\"im_msvistalog\"] An account failed to log on."
+  },
+  "assertions": [
+    {
+      "assertion_type": "path_and_value_matches",
+      "json_path": "$.parsedMessages[0].EventID",
+      "expected_pattern": "4625",
+      "negated_pattern": false,
+      "active": true
+    },
+    {
+      "assertion_type": "path_and_value_matches",
+      "json_path": "$.parsedMessages[0].FailureReason",
+      "expected_pattern": "%%2313",
+      "negated_pattern": false,
+      "active": true
+    }
+  ],
+  "author": "siembol",
+  "version": 3,
+  "test_case_name": "failed_login",
+  "config_name": "win_eventlogs"
+}
