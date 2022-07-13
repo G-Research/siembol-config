@@ -1,5 +1,4 @@
 {
-  "test_case_name": "failed_login",
   "description": "Log with failed login, eventID: 4625",
   "test_specification": {
     "encoding": "utf8_string",
@@ -8,13 +7,14 @@
   "assertions": [
     {
       "assertion_type": "path_and_value_matches",
-      "json_path": "$.EventID",
+      "json_path": "$.parsedMessages[0].EventID",
       "expected_pattern": "4625",
       "negated_pattern": false,
       "active": true
     }
   ],
   "author": "siembol",
-  "version": 1,
+  "version": 2,
+  "test_case_name": "failed_login",
   "config_name": "win_eventlogs"
 }
