@@ -1,5 +1,5 @@
 {
-  "rules_version": 2,
+  "rules_version": 3,
   "rules": [
     {
       "rule_name": "siembol_heartbeat",
@@ -25,6 +25,38 @@
           "evaluator_type": "kafka_writer",
           "evaluator_attributes": {
             "topic_name": "siembol.response.heartbeat"
+          }
+        }
+      ]
+    },
+    {
+      "rule_name": "default",
+      "rule_author": "siembol",
+      "rule_version": 1,
+      "rule_description": "default response rule",
+      "evaluators": [
+        {
+          "evaluator_type": "markdown_table_formatter",
+          "evaluator_attributes": {
+            "field_name": "formatted_alert",
+            "table_name": "Alert Details",
+            "fields_column_name": "Field Name",
+            "values_column_name": "Field Value",
+            "field_filter": {
+              "including_fields": [
+                ".*"
+              ],
+              "excluding_fields": [
+                "original_string",
+                "siembol.*"
+              ]
+            }
+          }
+        },
+        {
+          "evaluator_type": "kafka_writer",
+          "evaluator_attributes": {
+            "topic_name": "siembol.response.alerts"
           }
         }
       ]
