@@ -11,10 +11,17 @@
       "expected_pattern": "4625",
       "negated_pattern": false,
       "active": true
+    },
+    {
+      "assertion_type": "path_and_value_matches",
+      "json_path": "$.parsedMessages[0].FailureReason",
+      "expected_pattern": "%%2313",
+      "negated_pattern": false,
+      "active": true
     }
   ],
   "author": "siembol",
-  "version": 2,
+  "version": 3,
   "test_case_name": "failed_login",
   "config_name": "win_eventlogs"
 }
