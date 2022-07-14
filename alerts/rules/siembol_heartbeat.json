@@ -1,7 +1,7 @@
 {
   "rule_name": "siembol_heartbeat",
   "rule_author": "siembol",
-  "rule_version": 1,
+  "rule_version": 2,
   "source_type": "siembol_heartbeat",
   "matchers": [
     {
@@ -11,5 +11,9 @@
       "field": "siembol_heartbeat",
       "data": "true"
     }
-  ]
+  ],
+  "rule_protection": {
+    "max_per_hour": 100,
+    "max_per_day": 3000
+  }
 }
